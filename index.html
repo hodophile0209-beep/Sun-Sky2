@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8F1D2C">
+  <title>Sun &amp; Sky ☀️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-90s">
+
+  <header class="topbar">
+    <a href="#" class="brand">
+      <span class="brand-icon">☀️</span>
+      <span>sun &amp; sky<span class="brand-dot">.</span></span>
+    </a>
+    <button class="profile-btn" id="profileBtn" aria-label="Profile">♡</button>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <span class="eyebrow">YOUR LITTLE TIME CAPSULE ✨</span>
+      <h1>Welcome Back<br><span>Home 🎀</span></h1>
+      <p>Come on in. Your little moments are waiting for you. Every page holds a piece of your story. ♡</p>
+    </section>
+
+    <section class="theme-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">MAKE YOURSELF AT HOME</span>
+          <h2>Choose your world ♡</h2>
+        </div>
+      </div>
+
+      <div class="theme-options">
+        <button class="theme-option active" data-theme="90s" type="button" aria-pressed="true">
+          <span class="theme-preview retro-preview">♥ ✦ ♥</span>
+          <span class="theme-name">90's</span>
+          <span class="theme-description">Retro scrapbook</span>
+        </button>
+
+        <button class="theme-option" data-theme="lovey-dovey" type="button" aria-pressed="false">
+          <span class="theme-preview love-preview">♡ ✿ ♡</span>
+          <span class="theme-name">Lovey Dovey</span>
+          <span class="theme-description">A little love journal</span>
+        </button>
+
+        <button class="theme-option" data-theme="memories" type="button" aria-pressed="false">
+          <span class="theme-preview memories-preview">☀ ☁ ☀</span>
+          <span class="theme-name">Memories</span>
+          <span class="theme-description">Blue skies & sunshine</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="calendar-card">
+      <div class="calendar-heading">
+        <button id="prevMonth" class="arrow" type="button" aria-label="Previous month">‹</button>
+        <div>
+          <h2 id="monthTitle">October 2026</h2>
+          <p id="monthSubtitle">A month full of possibilities</p>
+        </div>
+        <button id="nextMonth" class="arrow" type="button" aria-label="Next month">›</button>
+      </div>
+
+      <div class="weekdays">
+        <span>Mo</span><span>Tu</span><span>We</span>
+        <span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+      </div>
+
+      <div id="calendarGrid" class="calendar-grid"></div>
+
+      <div class="legend">
+        <span class="legend-dot"></span>
+        Little memories live here
+      </div>
+    </section>
+
+    <section class="memory-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">YOUR COLLECTION</span>
+          <h2>Little moments ♡</h2>
+        </div>
+        <span id="memoryCount" class="count">0 photos</span>
+      </div>
+
+      <div id="memoryList" class="memory-list"></div>
+    </section>
+
+    <footer>
+      <span>made of sunshine &amp; memories</span>
+      <span>☀️ ♡ ☁️</span>
+    </footer>
+  </main>
+
+  <dialog id="memoryDialog" class="memory-dialog">
+    <form method="dialog">
+      <button class="close-btn" aria-label="Close">×</button>
+    </form>
+
+    <span class="eyebrow">A LITTLE PIECE OF TIME</span>
+    <h2 id="selectedDateTitle">Your memories ♡</h2>
+    <p id="selectedDateSubtitle" class="dialog-subtitle"></p>
+
+    <div id="photoGrid" class="photo-grid"></div>
+
+    <label class="add-photo-btn">
+      ＋ Add more photos
+      <input id="photoInput" type="file" accept="image/*" multiple>
+    </label>
+
+    <p id="saveStatus" role="status" aria-live="polite"></p>
+
+    <form id="memoryForm" class="memory-form">
+      <label for="memoryCaption">A little note ♡</label>
+      <textarea id="memoryCaption" placeholder="What made this day special?"></textarea>
+      <button class="primary-btn" type="submit">Save note ☀️</button>
+    </form>
+
+    <p class="privacy-note">🔒 Your memories are stored on this device in this version.</p>
+  </dialog>
+
+  <script src="app.js"></script>
+
+  <script>
+    (() => {
+      const buttons = document.querySelectorAll(".theme-option");
+      const validThemes = ["90s", "lovey-dovey", "memories"];
+
+      function applyTheme(theme) {
+        if (!validThemes.includes(theme)) theme = "90s";
+
+        document.body.classList.remove(
+          "theme-90s",
+          "theme-lovey-dovey",
+          "theme-memories"
+        );
+
+        document.body.classList.add("theme-" + theme);
+
+        buttons.forEach(button => {
+          const active = button.dataset.theme === theme;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
+
+        document.querySelector('meta[name="theme-color"]')
+          ?.setAttribute(
+            "content",
+            theme === "lovey-dovey" ? "#E8A6B5" :
+            theme === "memories" ? "#D8EAF7" : "#8F1D2C"
+          );
+
+        try {
+          localStorage.setItem("sunsky-theme", theme);
+        } catch (error) {
+          // Theme switching still works if storage is unavailable.
+        }
+      }
+
+      buttons.forEach(button => {
+        button.addEventListener("click", () => {
+          applyTheme(button.dataset.theme);
+        });
+      });
+
+      let savedTheme = "90s";
+
+      try {
+        savedTheme = localStorage.getItem("sunsky-theme") || "90s";
+      } catch (error) {
+        // Use the default theme.
+      }
+
+      applyTheme(savedTheme);
+    })();
+  </script>
+</body>
+</html>

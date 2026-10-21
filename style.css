@@ -1,0 +1,1190 @@
+
+/* ==========================================
+   SUN & SKY — THE MEMORY BOOK 🎀
+   Default theme: 90's Retro Scrapbook
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Special+Elite&display=swap');
+
+:root {
+  color-scheme: light;
+
+  --paper: #F5E6BD;
+  --paper-light: #FFF8E8;
+  --paper-dark: #E7D09A;
+
+  --background: #8F1D2C;
+  --surface: #FFF5DD;
+  --surface-alt: #F3E1B6;
+
+  --accent: #C69B42;
+  --accent-light: #F5C842;
+  --accent-dark: #6D1724;
+
+  --text: #481B20;
+  --muted: #85644F;
+  --border: #D4B66D;
+
+  --shadow: rgba(45, 12, 15, 0.18);
+  --photo-frame: #FFFAEA;
+
+  --heading-font: 'Special Elite', Georgia, serif;
+  --body-font: 'DM Sans', sans-serif;
+  --display-font: 'Playfair Display', Georgia, serif;
+
+  --radius-card: 8px;
+  --radius-small: 4px;
+}
+
+/* ==========================================
+   THEME 1 — 90'S RETRO ❤️
+   ========================================== */
+
+body.theme-90s {
+  --paper: #F5E6BD;
+  --paper-light: #FFF8E8;
+  --paper-dark: #E7D09A;
+
+  --background: #8F1D2C;
+  --surface: #FFF5DD;
+  --surface-alt: #F3E1B6;
+
+  --accent: #C69B42;
+  --accent-light: #F5C842;
+  --accent-dark: #6D1724;
+
+  --text: #481B20;
+  --muted: #85644F;
+  --border: #D4B66D;
+
+  --shadow: rgba(45, 12, 15, 0.18);
+  --photo-frame: #FFFAEA;
+
+  --heading-font: 'Special Elite', Georgia, serif;
+  --body-font: 'DM Sans', sans-serif;
+  --display-font: 'Playfair Display', Georgia, serif;
+}
+
+/* ==========================================
+   THEME 2 — LOVEY DOVEY 💗
+   ========================================== */
+
+body.theme-lovey-dovey {
+  --paper: #FFF0E7;
+  --paper-light: #FFFAF5;
+  --paper-dark: #EBD0C7;
+
+  --background: #E8A6B5;
+  --surface: #FFF8F1;
+  --surface-alt: #F9DFE4;
+
+  --accent: #D9829A;
+  --accent-light: #F2C2CD;
+  --accent-dark: #53313A;
+
+  --text: #282124;
+  --muted: #82656A;
+  --border: #E5BAC5;
+
+  --shadow: rgba(65, 35, 43, 0.12);
+  --photo-frame: #FFFFFF;
+
+  --heading-font: 'Playfair Display', Georgia, serif;
+  --body-font: 'DM Sans', sans-serif;
+  --display-font: 'Playfair Display', Georgia, serif;
+}
+
+/* ==========================================
+   THEME 3 — MEMORIES ☀️
+   ========================================== */
+
+body.theme-memories {
+  --paper: #FFFDF5;
+  --paper-light: #FFFFFF;
+  --paper-dark: #DCECF7;
+
+  --background: #D8EAF7;
+  --surface: #FFFFFF;
+  --surface-alt: #EAF5FF;
+
+  --accent: #E5AE37;
+  --accent-light: #FFE08A;
+  --accent-dark: #285A87;
+
+  --text: #24384B;
+  --muted: #75889A;
+  --border: #D8E5EE;
+
+  --shadow: rgba(40, 90, 135, 0.10);
+  --photo-frame: #FFFDF5;
+
+  --heading-font: 'Playfair Display', Georgia, serif;
+  --body-font: 'DM Sans', sans-serif;
+  --display-font: 'Playfair Display', Georgia, serif;
+}
+
+/* ==========================================
+   RESET & GENERAL
+   ========================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--body-font);
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+.memory-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--accent-light);
+  color: var(--text);
+}
+
+/* ==========================================
+   TOP BAR
+   ========================================== */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 14px 6%;
+
+  background: var(--surface);
+  border-bottom: 3px double var(--border);
+
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--text);
+  text-decoration: none;
+
+  font-family: var(--display-font);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.5px;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: 2px solid var(--accent);
+  border-radius: 50% 50% 45% 45%;
+
+  background: var(--accent-light);
+  box-shadow: 3px 3px 0 var(--paper-dark);
+
+  font-size: 22px;
+}
+
+.brand-dot {
+  color: var(--accent);
+}
+
+.profile-btn,
+.arrow {
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  width: 42px;
+  height: 42px;
+
+  border: 2px solid var(--border);
+  border-radius: 50%;
+
+  background: var(--surface-alt);
+  color: var(--text);
+
+  font-size: 25px;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.profile-btn:active,
+.arrow:active {
+  transform: scale(0.92);
+}
+
+/* ==========================================
+   MAIN BOOK AREA
+   ========================================== */
+
+main {
+  width: min(100% - 28px, 680px);
+  margin: 0 auto;
+  padding: 20px 0 0;
+}
+
+/* ==========================================
+   WELCOME PAGE
+   ========================================== */
+
+.welcome {
+  position: relative;
+  overflow: hidden;
+
+  margin: 8px 0 22px;
+  padding: 30px 22px;
+
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-card);
+
+  box-shadow:
+    6px 6px 0 var(--accent-dark),
+    0 12px 30px var(--shadow);
+}
+
+.welcome::before {
+  content: "✦  ✧  ✦";
+
+  display: block;
+  margin-bottom: 14px;
+
+  color: var(--accent);
+  font-size: 17px;
+  letter-spacing: 8px;
+}
+
+.welcome::after {
+  content: "A LITTLE BOOK OF YOUR LIFE";
+
+  display: block;
+  margin-top: 20px;
+  padding-top: 12px;
+
+  border-top: 1px dashed var(--border);
+
+  color: var(--muted);
+  font-family: var(--heading-font);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  color: var(--accent-dark);
+
+  font-family: var(--heading-font);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  line-height: 1.8;
+}
+
+.welcome h1 {
+  margin: 14px 0;
+
+  color: var(--text);
+
+  font-family: var(--display-font);
+  font-size: clamp(30px, 8vw, 45px);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -1px;
+}
+
+.welcome h1 span {
+  color: var(--accent-dark);
+  font-style: italic;
+}
+
+.welcome p {
+  margin: 12px 0 0;
+
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   CALENDAR — VINTAGE BOOK PAGE
+   ========================================== */
+
+.calendar-card {
+  position: relative;
+
+  padding: 22px 16px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+
+  box-shadow:
+    5px 5px 0 var(--paper-dark),
+    0 12px 25px var(--shadow);
+}
+
+/* Decorative book binding */
+
+.calendar-card::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 5px;
+
+  border-radius: var(--radius-card) 0 0 var(--radius-card);
+
+  background: var(--accent);
+  opacity: 0.65;
+}
+
+.calendar-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  margin-bottom: 23px;
+  padding-left: 5px;
+}
+
+.calendar-heading > div {
+  flex: 1;
+  text-align: center;
+}
+
+.calendar-heading h2,
+.section-heading h2 {
+  margin: 0;
+
+  font-family: var(--display-font);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.calendar-heading p {
+  margin: 6px 0 0;
+
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.arrow {
+  width: 36px;
+  height: 36px;
+  font-size: 27px;
+}
+
+.weekdays,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.weekdays {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+
+  border-bottom: 1px dashed var(--border);
+}
+
+.weekdays span {
+  text-align: center;
+
+  color: var(--muted);
+
+  font-family: var(--heading-font);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.day {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+
+  padding: 2px;
+
+  border: 1px solid transparent;
+  border-radius: 6px;
+
+  background: var(--paper-light);
+  color: var(--text);
+
+  font-size: 13px;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.day:active {
+  transform: scale(0.92);
+}
+
+.day.selected {
+  border: 2px solid var(--accent-dark);
+
+  background: var(--accent-light);
+  color: var(--text);
+
+  font-weight: 700;
+
+  box-shadow: 2px 2px 0 var(--accent);
+}
+
+.day.today {
+  border: 2px dashed var(--accent);
+  font-weight: 700;
+}
+
+.day.has-memory::after {
+  content: "♥";
+
+  color: var(--accent-dark);
+  font-size: 8px;
+  line-height: 1;
+}
+
+.day.empty {
+  visibility: hidden;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 19px;
+  padding-top: 12px;
+
+  border-top: 1px dashed var(--border);
+
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+}
+
+/* ==========================================
+   MEMORY COLLECTION
+   ========================================== */
+
+.memory-section {
+  padding: 34px 2px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 10px;
+
+  margin-bottom: 19px;
+}
+
+.section-heading h2 {
+  margin-top: 7px;
+}
+
+.count {
+  color: var(--muted);
+  font-size: 11px;
+  text-align: right;
+}
+
+/* ==========================================
+   SCRAPBOOK PHOTO CARDS
+   ========================================== */
+
+.memory-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.memory-card {
+  position: relative;
+
+  min-width: 0;
+  padding: 10px 10px 14px;
+
+  background: var(--photo-frame);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+
+  box-shadow: 2px 4px 0 var(--paper-dark);
+
+  cursor: pointer;
+
+  transform: rotate(-0.5deg);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.memory-card:nth-child(even) {
+  transform: rotate(0.7deg);
+}
+
+.memory-card:active {
+  transform: rotate(0deg) scale(0.98);
+}
+
+.memory-card img {
+  display: block;
+
+  width: 100%;
+  height: 135px;
+
+  object-fit: cover;
+
+  border: 1px solid var(--border);
+  background: var(--paper-dark);
+}
+
+.memory-card h3 {
+  margin: 12px 0 5px;
+
+  color: var(--text);
+
+  font-family: var(--heading-font);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.memory-card p {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   EMPTY SCRAPBOOK
+   ========================================== */
+
+.empty-state {
+  grid-column: 1 / -1;
+
+  padding: 30px 18px;
+
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius-card);
+
+  background: var(--surface);
+  color: var(--text);
+
+  text-align: center;
+}
+
+.empty-state .sun {
+  font-size: 34px;
+}
+
+.empty-state h3 {
+  margin: 12px 0 6px;
+
+  font-family: var(--display-font);
+  font-size: 21px;
+}
+
+.empty-state p {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   MEMORY BOOK PAGE / DIALOG
+   ========================================== */
+
+.memory-dialog {
+  width: min(92%, 490px);
+  max-height: 88vh;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  padding: 23px 18px;
+
+  border: 2px solid var(--accent);
+  border-radius: 7px;
+
+  background: var(--paper-light);
+  color: var(--text);
+
+  box-shadow: 0 18px 60px var(--shadow);
+}
+
+.memory-dialog::backdrop {
+  background: rgba(35, 12, 18, 0.72);
+}
+
+.memory-dialog > .eyebrow {
+  margin-top: 12px;
+}
+
+.memory-dialog h2 {
+  margin: 10px 0 6px;
+
+  font-family: var(--display-font);
+  font-size: 26px;
+  line-height: 1.3;
+}
+
+.dialog-subtitle {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.close-btn {
+  display: grid;
+  place-items: center;
+
+  width: 36px;
+  height: 36px;
+  margin-left: auto;
+
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
+  background: var(--surface-alt);
+  color: var(--text);
+
+  font-size: 25px;
+}
+
+/* ==========================================
+   PHOTO GALLERY — FRAMED MEMORIES
+   ========================================== */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+
+  margin: 20px 0;
+}
+
+.photo-grid img {
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  padding: 7px;
+
+  object-fit: cover;
+
+  border: 1px solid var(--border);
+
+  background: var(--photo-frame);
+
+  box-shadow: 2px 4px 0 var(--paper-dark);
+
+  transform: rotate(-1deg);
+}
+
+.photo-grid img:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+/* Notes displayed within the photo gallery */
+
+.photo-grid p.dialog-subtitle {
+  grid-column: 1 / -1;
+
+  padding: 14px;
+
+  border: 1px dashed var(--border);
+
+  background: var(--surface-alt);
+
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   ADD PHOTOS BUTTON
+   ========================================== */
+
+.add-photo-btn {
+  position: relative;
+
+  display: block;
+
+  margin: 10px 0 15px;
+  padding: 14px;
+
+  border: 2px dashed var(--accent);
+  border-radius: 5px;
+
+  background: var(--accent-light);
+  color: var(--text);
+
+  text-align: center;
+  font-weight: 700;
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.add-photo-btn:active {
+  transform: scale(0.98);
+}
+
+.add-photo-btn input {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+
+  white-space: nowrap;
+}
+
+.add-photo-btn:focus-within {
+  outline: 3px solid var(--accent-dark);
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   SAVE STATUS
+   ========================================== */
+
+#saveStatus {
+  margin: 8px 0;
+
+  color: var(--accent-dark);
+
+  font-size: 12px;
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
+}
+
+#saveStatus:empty {
+  display: none;
+}
+
+/* ==========================================
+   NOTES FORM
+   ========================================== */
+
+.memory-form {
+  display: grid;
+  gap: 11px;
+
+  margin-top: 20px;
+  padding-top: 18px;
+
+  border-top: 1px dashed var(--border);
+}
+
+.memory-form label {
+  color: var(--text);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.memory-form textarea,
+.memory-form input {
+  width: 100%;
+  min-width: 0;
+
+  padding: 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 5px;
+
+  background: var(--surface);
+  color: var(--text);
+
+  font-family: var(--body-font);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.memory-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.memory-form textarea::placeholder,
+.memory-form input::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.primary-btn {
+  width: 100%;
+
+  padding: 14px;
+
+  border: 1px solid var(--accent-dark);
+  border-radius: 5px;
+
+  background: var(--accent-dark);
+  color: #FFFFFF;
+
+  font-weight: 700;
+  font-size: 13px;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.primary-btn:active {
+  transform: scale(0.98);
+}
+
+.primary-btn:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.privacy-note {
+  margin-top: 17px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 20px 2px 30px;
+
+  border-top: 1px dashed var(--border);
+
+  color: var(--surface);
+  font-family: var(--heading-font);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (min-width: 600px) {
+  main {
+    padding-top: 24px;
+  }
+
+  .welcome {
+    padding: 38px 30px;
+  }
+
+  .calendar-card {
+    padding: 28px 24px;
+  }
+
+  .day {
+    font-size: 15px;
+  }
+
+  .memory-card img {
+    height: 175px;
+  }
+
+  .memory-dialog {
+    padding: 28px 24px;
+  }
+}
+
+/* Small phones */
+
+@media (max-width: 360px) {
+  main {
+    width: calc(100% - 20px);
+  }
+
+  .welcome {
+    padding: 24px 16px;
+  }
+
+  .welcome h1 {
+    font-size: 30px;
+  }
+
+  .calendar-card {
+    padding: 20px 11px;
+  }
+
+  .weekdays,
+  .calendar-grid {
+    gap: 3px;
+  }
+
+  .day {
+    font-size: 11px;
+  }
+
+  .memory-card {
+    padding: 7px;
+  }
+
+  .memory-card img {
+    height: 105px;
+  }
+
+  .memory-card h3 {
+    font-size: 11px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* THEME SELECTOR */
+
+.theme-section {
+  margin: 0 0 25px;
+}
+
+.theme-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.theme-option {
+  min-width: 0;
+  padding: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+
+  border: 2px solid var(--border);
+  border-radius: 8px;
+
+  background: var(--surface);
+  color: var(--text);
+
+  text-align: center;
+
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-option.active {
+  border-color: var(--accent);
+  box-shadow: 0 3px 0 var(--accent);
+  transform: translateY(-2px);
+}
+
+.theme-preview {
+  width: 100%;
+  min-height: 55px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 4px;
+
+  font-size: 19px;
+  letter-spacing: 2px;
+}
+
+.retro-preview {
+  background: #8F1D2C;
+  color: #F5C842;
+}
+
+.love-preview {
+  background: #FFF0E7;
+  color: #D9829A;
+}
+
+.memories-preview {
+  background: #EAF5FF;
+  color: #285A87;
+}
+
+.theme-name {
+  font-size: 11px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.theme-description {
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+@media (max-width: 360px) {
+  .theme-options {
+    gap: 5px;
+  }
+
+  .theme-option {
+    padding: 5px;
+  }
+
+  .theme-name {
+    font-size: 10px;
+  }
+
+  .theme-description {
+    font-size: 8px;
+  }
+}
+
+/* SCRAPBOOK PHOTO FRAMES */
+
+.scrapbook-photo {
+  min-width: 0;
+  margin: 0;
+  padding: 8px 8px 12px;
+
+  background: var(--photo-frame);
+  border: 1px solid var(--border);
+
+  box-shadow: 2px 4px 0 var(--paper-dark);
+
+  transform: rotate(-1deg);
+}
+
+.scrapbook-photo:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.scrapbook-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.scrapbook-photo figcaption {
+  padding-top: 9px;
+  color: var(--muted);
+  font-family: var(--heading-font);
+  font-size: 10px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.scrapbook-note {
+  grid-column: 1 / -1;
+
+  padding: 16px;
+
+  background: var(--surface-alt);
+  border: 1px dashed var(--accent);
+
+  color: var(--text);
+  font-family: var(--heading-font);
+  font-size: 13px;
+  line-height: 1.9;
+
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+
+  transform: rotate(-0.3deg);
+}
+
